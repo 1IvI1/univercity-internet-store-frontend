@@ -1,11 +1,12 @@
 import './App.css';
+import RegistrationForm from './components/registration/RegistrationForm'
 
 import React from 'react';
 
 function App() {
   return (
     <div className="App">
-      App
+      <RegistrationForm />
     </div>
   );
 }
