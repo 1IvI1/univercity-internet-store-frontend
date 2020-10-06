@@ -1,31 +1,34 @@
 import React from "react";
 
-const Option = ({ toggle, option }) => {
+const Option = ({ toggle, option, select }) => {
   return (
     <div
-      onClick={() => {
+    className="option"
+      onClick={(e) => {
         toggle();
+        select(option.name)
       }}
     >
-      {option}
+      {option.name}
     </div>
   );
 };
 
-export default function UniversitySelection(props) {
-  const {
-    options,
-    selectedOption,
-    showOptions,
-    toggleShowOptions,
-    selectOption,
-  } = props;
+export default function UniversitySelection({
+  options,
+  selectedOption,
+  showOptions,
+  toggleShowOptions,
+  selectOption,
+}) {
+  console.log(options, showOptions)
   return (
     <div className="university-selection-container" onClick={toggleShowOptions}>
       {showOptions &&
         options.map((option) => (
-          <Option toggle={toggleShowOptions} option={option} />
+          <Option toggle={toggleShowOptions} option={option} select={selectOption} />
         ))}
+        {selectedOption.name}
     </div>
   );
 }

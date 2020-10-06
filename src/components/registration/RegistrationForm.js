@@ -55,7 +55,7 @@ export default class RegistrationForm extends Component {
       loginValidationError: "",
       passwordValidationError: "",
       passwordConfirmationError: "",
-      phoneConfirmationError: "",
+      phoneValidationError: "",
     };
   }
   universitiesDropdownToggle = () => {
@@ -65,12 +65,12 @@ export default class RegistrationForm extends Component {
   };
   facultiesDropdownToggle = () => {
     this.setState({
-      facultiesDropdownToggle: !this.state.facultiesDropdownToggle,
+      facultiesDropdownShown: !this.state.facultiesDropdownShown,
     });
   };
   specialinostiDropdownToggle = () => {
     this.setState({
-      specialinostiDropdownToggle: !this.state.specialinostiDropdownToggle,
+      specialinostiDropdownShown: !this.state.specialinostiDropdownShown,
     });
   };
   selectUniversity = (university) => {
@@ -106,6 +106,7 @@ export default class RegistrationForm extends Component {
     else
       this.setState({
         nameValidationError: "",
+        name: name
       });
   };
   validateEmail = (email) => {
@@ -128,13 +129,14 @@ export default class RegistrationForm extends Component {
     } else {
       this.setState({
         emailValidationError: "",
+        email: email
       });
     }
   };
   validatePhone = (phone) => {
-    if (phone.length !== 9) {
+    if (phone.length !== 12) {
       this.setState({
-        phoneValidationError: "Phone must contain exacly 9 digits!",
+        phoneValidationError: "Phone number is too short!",
       });
     } else if (
       !/^\+?([0-9]{3})\)?[-. ]?([0-9]{2})[-. ]?([0-9]{3})[-. ]?([0-9]{3})$/.test(
@@ -148,6 +150,7 @@ export default class RegistrationForm extends Component {
     } else {
       this.setState({
         phoneValidationError: "",
+        phone: phone
       });
     }
   };
@@ -159,24 +162,56 @@ export default class RegistrationForm extends Component {
       });
     }
   };
+  validatePassword = (password) => {
+    if (password.length < 8) {
+      this.setState({
+        passwordValidationError: "Your password must be at least 8 characters!"
+      })
+    }
+    else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password)) {
+      this.setState({
+        passwordValidationError: "Your password is too weak!"
+      })
+    }
+    else {
+      this.setState({
+        passwordValidationError: "",
+        password: password
+      })
+    }
+  }
+  confirmPassword = password => {
+    if (this.state.password !== password) {
+      this.setState({
+        passwordConfirmationError: "Passwords do not match!"
+      })
+    }
+    else {
+      this.setState({
+        passwordConfirmationError: ""
+      })
+    }
+  }
   render() {
     return (
       <div className="registration-form-container">
         <form>
+          <h2>Sign Up</h2>
           <label>
             Your Name
             {!!this.state.nameValidationError.length && (
-              <span>{this.state.nameValidationError}</span>
+              <span className="form-error">{this.state.nameValidationError}</span>
             )}
           </label>
           <input
+            className={`input-${!!this.state.nameValidationError.length && "error"}`}
             placeholder="Mihai Perebinos..."
             onBlur={(e) => this.validateName(e.target.value)}
           />
           <label>
             Your Email
             {!!this.state.emailValidationError.length && (
-              <span>{this.state.emailValidationError}</span>
+              <span className="form-error">{this.state.emailValidationError}</span>
             )}
           </label>
           <input
@@ -186,17 +221,17 @@ export default class RegistrationForm extends Component {
           <label>
             Your Phone
             {!!this.state.phoneValidationError.length && (
-              <span>{this.state.phoneValidationError}</span>
+              <span className="form-error">{this.state.phoneValidationError}</span>
             )}
           </label>
           <input
-            placeholder="068327463"
+            placeholder="+37368327463"
             onBlur={(e) => this.validatePhone(e.target.value)}
           />
           <label>
             Your Login
             {!!this.state.loginValidationError.length && (
-              <span>{this.state.loginValidationError}</span>
+              <span className="form-error">{this.state.loginValidationError}</span>
             )}
           </label>
           <input
@@ -206,7 +241,7 @@ export default class RegistrationForm extends Component {
           <label>
             Your Password
             {!!this.state.passwordValidationError.length && (
-              <span>{this.state.passwordValidationError}</span>
+              <span className="form-error">{this.state.passwordValidationError}</span>
             )}
           </label>
           <input
@@ -216,7 +251,7 @@ export default class RegistrationForm extends Component {
           <label>
             Confirm Your Password
             {!!this.state.passwordConfirmationError.length && (
-              <span>{this.state.passwordConfirmationError}</span>
+              <span className="form-error">{this.state.passwordConfirmationError}</span>
             )}
           </label>
           <input
@@ -225,39 +260,36 @@ export default class RegistrationForm extends Component {
           />
           <label>Select Your University</label>
           <OptionsSelection
-            options={this.state.universities}
+            options={this.state.options.universities}
             selectedOption={this.state.options.universities[0].name}
             showOptions={this.state.universitiesDropdownShown}
             toggleShowOptions={this.universitiesDropdownToggle}
             selectOption={this.selectUniversity}
           />
-          <label>Select Your Faculty</label>
-          {this.state.university.length !== 0 ? (
+          {this.state.university && (
+            <>
+            <label>Select Your Faculty</label>
             <OptionsSelection
-              options={this.state.UTMfaculties}
-              selectedOption={this.state.UTMfaculties[0]}
+              options={this.state.options.UTMfaculties}
+              selectedOption={this.state.options.UTMfaculties[0]}
               showOptions={this.state.facultiesDropdownShown}
               toggleShowOptions={this.facultiesDropdownToggle}
               selectOption={this.selectFaculty}
             />
-          ) : (
-            <div className="university-not-selected">
-              Select Your University First
-            </div>
+          </>
           )}
-          <label>Специальность</label>
-          {this.state.faculty.length !== 0 ? (
+          {this.state.faculty && (
+            <>
+            <label>Специальность</label>
             <OptionsSelection
-              options={this.state.UTMFCIMspecialinosti}
-              selectedOption={this.state.UTMFCIMspecialnosti[0]}
+              options={this.state.options.UTMFCIMspecialinosti}
+              selectedOption={this.state.options.UTMFCIMspecialinosti[0]}
               showOptions={this.state.specialinostiDropdownShown}
               toggleShowOptions={this.specialinostiDropdownToggle}
               selectOption={this.selectSpecialinosti}
             />
-          ) : (
-            <div className="university-not-selected">
-              Select Your Faculty First
-            </div>
+            </>
+          
           )}
         </form>
       </div>
