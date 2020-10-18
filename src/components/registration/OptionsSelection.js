@@ -21,14 +21,19 @@ export default function UniversitySelection({
   toggleShowOptions,
   selectOption,
 }) {
-  console.log(options, showOptions)
+  console.log("showOptions", showOptions)
   return (
-    <div className="university-selection-container" onClick={toggleShowOptions}>
+    <div className="options-selection" onClick={toggleShowOptions}>
+      
       {showOptions &&
+      <div className="options-container">
+        {
         options.map((option) => (
           <Option toggle={toggleShowOptions} option={option} select={selectOption} />
         ))}
-        {selectedOption.name}
+        </div>}
+        {!showOptions && selectedOption}
+       
     </div>
   );
 }
