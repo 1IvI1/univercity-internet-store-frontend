@@ -1,0 +1,14 @@
+.news-container {
+    position: relative;
+    top: 4rem;
+    display: flex;
+    padding: 30px;
+}
+
+.filter-and-news-feed-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}

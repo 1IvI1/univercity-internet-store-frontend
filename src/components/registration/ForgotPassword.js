@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import ipAddress from '../../constants'
 import '../../css/registration/Registration.css'
+import { withRouter } from "react-router-dom"
 
-export default function ForgotPassword() {
+const ForgotPassword = ({history}) => {
     const [emailValidationError, setEmailValidationError] = useState(null)
     const [active, setActive] = useState("inactive")
     const [emailSent, setEmailSent] = useState(null)
@@ -49,7 +50,13 @@ export default function ForgotPassword() {
                     </div>
                 }
                 <button className={`registration-button-${active}`} onClick={sendRestorationEmail}>Restore Password</button>
+                <div className="form-links">
+                    <button onClick={() => history.push("/sign-in")}>Back to sign in page</button>
+                    <button onClick={() => history.push("/")}>Create a new account</button>
+                </div>
             </form>
         </div>
     )
 }
+
+export default withRouter(ForgotPassword)

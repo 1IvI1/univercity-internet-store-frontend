@@ -1,0 +1,13 @@
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: 0.4s;
+}
+
+.user-avatar:hover {
+    border: 2px solid white;
+}

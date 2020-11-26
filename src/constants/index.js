@@ -1,2 +1,2 @@
-const ipAddress = "http://192.168.0.6:4000"
-export default ipAddress
+const ipAddress = "http://127.0.0.1:4000"
+export {ipAddress}
