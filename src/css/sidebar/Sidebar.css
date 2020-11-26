@@ -1,0 +1,24 @@
+.sidebar-container {
+    background: rgb(206, 206, 206);
+    position: relative;
+    width: 30%;
+    height: fit-content;
+}
+
+.sidebar-container > div {
+    width: 100%;
+    display: flex;
+}
+
+.sidebar-link-container a {
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+    transition: 0.4s;
+}
+
+.sidebar-link-container a:hover {
+    background: rgb(173, 173, 173);
+}
