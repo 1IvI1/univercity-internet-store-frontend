@@ -1,4 +1,4 @@
-import axios from 'axios'
+// import axios from 'axios'
 import React, { useState, useEffect, useCallback } from 'react'
 import '../../css/registration/Registration.css'
 // import ipAddress from '../../constants'
@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom"
 import { BehaviorSubject } from 'rxjs'
 import { delay } from 'rxjs/operators'
 import auth from '../../auth/auth'
-import { goToSignIn, parseJWT } from '../../helpers'
+import { parseJWT } from '../../helpers'
 import { useDispatch } from 'react-redux'
 import { userActions } from '../../redux/user/actions'
 // import { goToForgotPasswordPage, goToRegistrationPage } from '../../helpers'
@@ -16,9 +16,9 @@ const delayedLoginQuery$ = loginQuery$.pipe(
   delay(3000)
 )
 
-const onChangeLoginQuery = (value) => {
-  delayedLoginQuery$.next(value)
-}
+// const onChangeLoginQuery = (value) => {
+//   delayedLoginQuery$.next(value)
+// }
 
 function SignInForm({ history }) {
   const [login, setLogin] = useState(null)

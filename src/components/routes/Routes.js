@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import {
   Switch,
   Route,
-  withRouter,
+  // withRouter,
   useHistory
 } from 'react-router-dom'
 import News from '../news/News'
