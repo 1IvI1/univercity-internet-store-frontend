@@ -36,7 +36,7 @@ class JwtToken {
         this.setUser(parseJWT(this.accessToken))
         this.refreshTokenWithInterval()
       }).catch(err => {
-        console.log('err', err.response.data)
+        // console.log('err', err.response.data)
         this.clearRefreshInterval()
         this.pushTo("/sign-in")
       })

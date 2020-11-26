@@ -7,10 +7,10 @@ function MessagesMain() {
   const user = useSelector(state => state.UserStore.user)
 
   useEffect(() => {
-    getLastMessages(user.id).then(response => {
-      console.log('response.data', response.data)
-      setMesages(response.data)
-    })
+    // getLastMessages(user.id).then(response => {
+    //   console.log('response.data', response.data)
+    //   setMesages(response.data)
+    // })
   }, [])
 
   return (
