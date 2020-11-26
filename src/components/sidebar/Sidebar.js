@@ -10,4 +10,4 @@ export default function Sidebar() {
             <SidebarLink to="/subscriptions" title="Subscriptions"/>
         </div>
     )
-}
+} 

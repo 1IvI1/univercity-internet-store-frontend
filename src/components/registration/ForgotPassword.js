@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import ipAddress from '../../constants'
+// import axios from 'axios'
+// import ipAddress from '../../constants'
 import '../../css/registration/Registration.css'
 import { withRouter } from "react-router-dom"
 
@@ -10,14 +10,14 @@ const ForgotPassword = ({history}) => {
     const [emailSent, setEmailSent] = useState(null)
     const [codeValidationError, setCodeValidationError] = useState(null)
 
-    const validateEmail = email => {
+    // const validateEmail = email => {
         setActive("active")
         // axios.post(`${ipAddress}/
 
         // `)
         // .then(res => {})
         // .catch(err => setEmailValidationError("Found no user with this email address."))
-    }
+    // }
 
     const sendRestorationEmail = () => {
         setEmailSent("sent")
@@ -39,7 +39,7 @@ const ForgotPassword = ({history}) => {
                 </label>
                 <input
                     placeholder="somebody@something.com"
-                    onChange={(e) => validateEmail(e.target.value)}
+                    // onChange={(e) => validateEmail(e.target.value)}
                 />
                 {
                     emailSent && <div>

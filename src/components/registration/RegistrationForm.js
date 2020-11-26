@@ -3,42 +3,42 @@ import OptionsSelection from "./OptionsSelection";
 import "../../css/registration/Registration.css";
 import axios from "axios";
 import { ipAddress } from "../../constants";
-import { withRouter, Link } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import { goToSignIn } from '../../helpers'
 import { getFaculties, getGroups, getUniversities } from "./services/RegistrationFormServices";
 
 const RegistrationForm = (props) => {
-  const options = {
-    universities: [
-      {
-        id: 1,
-        name: "UTM",
-      },
-      {
-        id: 2,
-        name: "USM",
-      },
-    ],
-    UTMfaculties: [
-      {
-        id: 1,
-        name: "FCIM",
-      },
-    ],
-    UTMFCIMspecialinosti: [
-      {
-        id: 1,
-        name: "Informatica Aplicata",
-      },
-    ],
-    USMfaculties: [
-      {
-        id: 1,
-        name: "IDUNNO",
-      },
-    ],
-    USMIDUNNOspecialinosti: [{ id: 1, name: "Microbiologia" }],
-  }
+  // const options = {
+  //   universities: [
+  //     {
+  //       id: 1,
+  //       name: "UTM",
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "USM",
+  //     },
+  //   ],
+  //   UTMfaculties: [
+  //     {
+  //       id: 1,
+  //       name: "FCIM",
+  //     },
+  //   ],
+  //   UTMFCIMspecialinosti: [
+  //     {
+  //       id: 1,
+  //       name: "Informatica Aplicata",
+  //     },
+  //   ],
+  //   USMfaculties: [
+  //     {
+  //       id: 1,
+  //       name: "IDUNNO",
+  //     },
+  //   ],
+  //   USMIDUNNOspecialinosti: [{ id: 1, name: "Microbiologia" }],
+  // }
   const [universities, setUniversities] = useState(null)
   const [faculties, setFaculties] = useState(null)
   const [groups, setGroups] = useState(null)

@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from './Header'
-import Sidebar from "../components/news/Sidebar"
+import Sidebar from './sidebar/Sidebar'
+
 function HeaderBarsWrapper(props) {
   return (
     <div className="main-wrapper">
       <Header />
-      <div className="news-container">
+      <div className="main-container">
         <Sidebar />
-        <div className="filter-and-news-feed-container" {...props}>
-        </div>
+        <div className="content-container" {...props} />
       </div>
     </div>
   )

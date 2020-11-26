@@ -24,7 +24,7 @@ export default function Routes() {
   const [canOpen, setCanOpen] = useState(null)
 
   const pushTo = path => {
-    console.log('history', history)
+    // console.log('history', history)
     // history.push(path)
   }
 

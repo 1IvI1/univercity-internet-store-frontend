@@ -1,5 +1,5 @@
 .sidebar-container {
-    background: rgb(206, 206, 206);
+    background: rgb(255, 255, 255);
     position: relative;
     width: 30%;
     height: fit-content;
@@ -11,7 +11,7 @@
 }
 
 .sidebar-link-container a {
-    border: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(238, 238, 238);
     width: 100%;
     padding: 10px;
     text-decoration: none;
@@ -20,5 +20,5 @@
 }
 
 .sidebar-link-container a:hover {
-    background: rgb(173, 173, 173);
+    background: rgb(238, 238, 238);
 }

@@ -5,8 +5,8 @@ export default function SidebarLink({ to, title }) {
     return (
         <div className="sidebar-link-container">
             <NavLink to={to} activeStyle={{
-                color: "black",
-                background: " #deb916"
+                color: "white",
+                background: "rgb(0, 64, 120)"
             }}>{title}</NavLink>
         </div>
     )

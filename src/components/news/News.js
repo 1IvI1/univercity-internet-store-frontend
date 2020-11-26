@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { withRouter } from "react-router-dom"
 import NewsFeed from './NewsFeed'
 import '../../css/news/News.css'
-import Filter from './Filter'
+import NewsFilter from './NewsFilter'
 
-function News({ history }) {
+function News() {
 
   return (
     <>
-      <Filter />
+      <NewsFilter />
       <NewsFeed />
     </>
   )

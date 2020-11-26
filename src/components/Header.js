@@ -41,7 +41,7 @@ export default function Header() {
           <input
             className="search"
             value={searchQuery}
-            placeholder="Search..."
+            placeholder="Search"
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>

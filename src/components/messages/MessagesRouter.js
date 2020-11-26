@@ -1,18 +1,18 @@
 import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
-import MessagesChat from './MessagesChat'
-import MessagesMain from './MessagesMain'
+import Chat from './Chat'
+import Dialogs from './Dialogs'
 
 function MessagesRouter() {
   const match = useRouteMatch()
-  console.log('match.url', match.url)
+  // console.log('match.url', match.url)
   return (
     <Switch>
       <Route exact path={`${match.url}`}>
-        <MessagesMain />
+        <Dialogs />
       </Route>
       <Route path={`${match.url}/chat/:chatId`}>
-        <MessagesChat />
+        <Chat />
       </Route>
     </Switch>
   )
