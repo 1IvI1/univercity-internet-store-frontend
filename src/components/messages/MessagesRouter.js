@@ -8,7 +8,7 @@ function MessagesRouter() {
   console.log('match.url', match.url)
   return (
     <Switch>
-      <Route path={`${match.url}`}>
+      <Route exact path={`${match.url}`}>
         <MessagesMain />
       </Route>
       <Route path={`${match.url}/chat/:chatId`}>

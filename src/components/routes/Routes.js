@@ -25,7 +25,7 @@ export default function Routes() {
 
   const pushTo = path => {
     console.log('history', history)
-    history.push(path)
+    // history.push(path)
   }
 
   const dispatch = useDispatch()
@@ -42,7 +42,7 @@ export default function Routes() {
   }, [])
 
   return (
-    jwtToken ? 
+    // jwtToken ? 
     <Switch>
       <Route exact path="/news" render={() =>
         <HeaderBarsWrapper>
@@ -69,7 +69,7 @@ export default function Routes() {
         <ForgotPassword />
       </Route>
     </Switch>
-    : <h1>Loading...</h1>
+    // : <h1>Loading...</h1>
   )
 }
 
