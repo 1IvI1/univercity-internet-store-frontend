@@ -1,4 +1,88 @@
 .post-container {
-    border: 1px solid red;
     background: white;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.1); 
+    box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.1);
+}
+.post-header {
+    display: flex;
+    column-gap: 10px;
+}
+.post-headers {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.post-name {
+    font-weight: bold;
+    color: #004f92;
+}
+.post-tags {
+    display: flex;
+    justify-content: space-evenly;
+}
+.post-tags div {
+    background: #deb916;
+    color: white;
+    padding: 5px 7px;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+.post-tags div:hover {
+    background: #f3d54e;
+    cursor: pointer;
+}
+.post-body {
+    display: flex;
+    column-gap: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgb(230, 230, 230);
+}
+.post-body div {
+    width: 100%;
+}
+.post-files-wrapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.post-footer {
+    display: flex;
+    padding: 10px;
+}
+.post-footer div {
+    width: 100%;
+}
+.post-buttons {
+    display: flex;
+    column-gap: 20px;
+}
+.post-buttons img:hover {
+    cursor: pointer;
+}
+.post-date {
+    color: rgb(180, 180, 180);
+    text-align: right;
+}
+.post-file-container {
+    border: 1px solid gray;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: 0.4s;
+}
+.post-file-container:hover {
+    background: rgb(243, 243, 243);
+    cursor: pointer;
+}
+.post-description-wrapper {
+    padding: 10px;
+    color: gray;
+}
+.download-link {
+    text-align: right;
 }

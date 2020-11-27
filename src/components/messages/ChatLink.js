@@ -2,7 +2,9 @@ import React from 'react'
 import UserAvatar from '../UserAvatar'
 
 export const ChatLink = (props) => {
-    console.log('props', props)
+    console.log('props', props.threadArray)
+    const messages = props.threadArray.filter(array => array.length > 0)
+    console.log(messages)
     const { author, date, isRead, messageText } = props.thread
     return (
         <div className={`chat-link-container ${isRead ? 'inactive' : 'active'}`}>

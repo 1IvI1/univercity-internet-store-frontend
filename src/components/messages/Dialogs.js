@@ -52,6 +52,8 @@ function Dialogs() {
       messageText: 'Bla bla bla'
     },
   ])
+
+  const [threadsArray, setThreadsArray] = useState()
   const [threads, setThreads] = useState()
 
   // const user = useSelector(state => state.UserStore.user)
@@ -66,7 +68,7 @@ function Dialogs() {
   // filter messages and make threads by message's author
   useEffect(() => {
     let threadsMap = new Map(), threadsArray = []
-    
+
     users.map(user => {
       let userMessages = messages.filter(message => {
         return message.author.name === user.name
@@ -78,14 +80,16 @@ function Dialogs() {
       threadsArray.push(thread)
     })
 
+    setThreadsArray(threadsArray)
+
     let latestMessages = []
     threadsArray.forEach(thread => latestMessages.push(thread.filter((message, index) => index === 0)))
     let read = []
     let unread = []
 
     latestMessages.map((message, index) => {
-      if(message[0].isRead) {
-       read.push(message[0])
+      if (message[0].isRead) {
+        read.push(message[0])
       }
       else {
         unread.push(message[0])
@@ -97,14 +101,21 @@ function Dialogs() {
     setThreads(sortedMessages)
   }, [])
 
-  // console.log('new messages', newMessages)
+  console.log('new messages', threadsArray)
 
   return (
     <div className='dialogs-container'>
       <Search />
-      <div className='chat-link-wrapper' onClick={() => console.log('i go to the chat')}>
+      <div className='chat-link-wrapper'>
         {
-          threads && threads.map(thread => <ChatLink to={thread.id} thread={thread} key={Math.random()}/>)
+          threads && threads.map(thread => <Link to={`messages/chat/${thread.id}`} ><ChatLink
+            to={thread.id}
+            thread={thread}
+            key={Math.random()}
+            threadArray={threadsArray.map(array => array.filter(message => {
+              return thread.author.id === message.author.id
+              // return array[0].author === thread.id
+            }))} /></Link>)
         }
       </div>
     </div>

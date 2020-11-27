@@ -1,6 +1,9 @@
 .news-feed-container {
-    padding: 30px;
-    width: 55%;
+    padding: 10px;
+    width: 60%;
     z-index: 1;
-    background: rgb(206, 206, 206);
+    background: rgba(240, 240, 240, 0.438);
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 } 
